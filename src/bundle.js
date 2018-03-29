@@ -11,30 +11,48 @@ import './main.css'
 
 const Subjects = () => (
     <div className="row d-flex justify-content-center">
-                <div className="col-md-3">
-                <Link to='/math'><Card>
+                <div className="col-md-2">
+                <Link to='/6'><Card>
                     <CardBody>
-                    <CardTitle>Math</CardTitle>
+                    <CardTitle>Class 6<sup>th</sup></CardTitle>
                     </CardBody>
                 </Card>
                 </Link>
                 </div>
-                <div className="col-md-3">
-                <Link to='/science'>
+                <div className="col-md-2">
+                <Link to='/7'>
                 <Card>
                     
                     <CardBody>
-                    <CardTitle>Science</CardTitle>
+                    <CardTitle>Class 7<sup>th</sup></CardTitle>
                     </CardBody>
                     
                 </Card>
                 </Link>
                 </div>
-                <div className="col-md-3">
-                <Link to='/social'>
+                <div className="col-md-2">
+                <Link to='/8'>
                 <Card>
                     <CardBody>
-                    <CardTitle>Social</CardTitle>
+                    <CardTitle>Class 8<sup>th</sup></CardTitle>
+                    </CardBody>
+                </Card>
+                </Link>
+                </div>
+                <div className="col-md-2">
+                <Link to='/9'>
+                <Card>
+                    <CardBody>
+                    <CardTitle>Class 9<sup>th</sup></CardTitle>
+                    </CardBody>
+                </Card>
+                </Link>
+                </div>
+                <div className="col-md-2">
+                <Link to='/10'>
+                <Card>
+                    <CardBody>
+                    <CardTitle>Class 10<sup>th</sup></CardTitle>
                     </CardBody>
                 </Card>
                 </Link>
@@ -50,7 +68,7 @@ class App extends React.Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path='/' render={() => <Subjects />}/>
-                    <Route path='/:subject?' render={props => <CardList subject={props.match.params.value}/>} />
+                    <Route path='/:subject?' render={props => <CardList subject={props.match.params.subject}/>} />
                 </Switch>
             </Router>
             
