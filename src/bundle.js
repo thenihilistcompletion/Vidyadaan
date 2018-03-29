@@ -5,15 +5,12 @@ import {NavBar as Navbar} from './components/navbar.jsx'
 import {CardList} from './components/lists.jsx'
 import {Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle} from 'reactstrap'
-
-import {Link} from 'react-router-dom'
+import history from './history'
+import {Link, Router, Switch, Route} from 'react-router-dom'
 import './main.css'
-class App extends React.Component {
-    render() {
-        return (
-            <div className="container-fluid fill">
-            <Navbar />
-            <div className="row d-flex justify-content-center">
+
+const Subjects = () => (
+    <div className="row d-flex justify-content-center">
                 <div className="col-md-3">
                 <Link to='/math'><Card>
                     <CardBody>
@@ -43,6 +40,19 @@ class App extends React.Component {
                 </Link>
                 </div>
             </div>
+)
+
+class App extends React.Component {
+    render() {
+        return (
+            <div className="container-fluid fill">
+            <Navbar />
+            <Router history={history}>
+                <Switch>
+                    <Route exact path='/' render={() => <Subjects />}/>
+                    <Route path='/:subject?' render={props => <CardList subject={props.match.params.value}/>} />
+                </Switch>
+            </Router>
             
             </div>
         )
